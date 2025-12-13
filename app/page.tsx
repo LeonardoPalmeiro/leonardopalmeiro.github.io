@@ -1,3 +1,5 @@
+import Hero from "./components/hero";
+
 export default function Home() {
   const name = "Your Name";
   const projects = [
@@ -7,6 +9,8 @@ export default function Home() {
   ];
 
   return (
+    <>
+    <Hero />
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-8">
       <h1 className="text-4xl font-bold mb-4">{name}</h1>
       <p className="text-gray-700 mb-8">Welcome to my personal page. Here are some of my projects:</p>
@@ -23,6 +27,6 @@ export default function Home() {
           </a>
         ))}
       </div>
-    </div>
+    </div></>
   );
 }
