@@ -2,7 +2,9 @@
 
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 import { useState } from 'react'
+import profileImage from '../../public/profile.jpg'
 
 
 const navigation = [
@@ -105,51 +107,48 @@ export default function Example() {
         </Dialog>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
-        <div>
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                I'm Leo
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-500">
-                  Engineer
-                </span>
-              </h1>
-        </div>
-        <div>
-          {/* Decorative elements */}
-          <div className="absolute -top-4 -left-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-          <div className="absolute -bottom-4 -right-4 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
 
-          {/* Photo placeholder */}
-          <div className="relative w-80 h-80 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 shadow-2xl overflow-hidden">
-            <div className="absolute inset-0 flex items-center justify-center backdrop-blur-sm bg-white/10">
-              <div className="text-center space-y-4">
-                <div className="w-32 h-32 mx-auto rounded-full bg-white/20 flex items-center justify-center">
-                  <svg className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                  </svg>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
-          <h1 className="text-2xl sm:text-3xl lg:text-7xl font-bold text-white leading-tight">
-                I'm Leo
-            </h1>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                Senior Software
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-500">
-                  Engineer
-                </span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl">
-              Passionate about crafting exceptional digital experiences through clean code and innovative solutions. 
-              I specialize in building scalable web applications with modern technologies, 
+
+
+            <div className="grid md:grid-cols-2 gap-4 items-center">
+              {/* Left Side - Text Content */}
+
+              <div className="text-left space-y-6 mt-45 text-white">
+                <div className="space-y-2">
+                  <h2 className="text-5xl md:text-7xl font-bold text-white">
+                    I'm Leo
+                  </h2>
+                  <h2 className="text-2xl font-bold text-white leading-tight">
+
+                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-500">
+                      Senior Software Engineer
+                    </span>
+                  </h2>
+                </div>
+
+                <div className="h-1 w-24 bg-gradient-to-r from-blue-400 to-cyan-600 rounded-full"></div>
+              </div>
+
+              {/* Right Side - Profile Image */}
+              <div className="flex justify-center md:justify-end">
+                <div className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                  <div className="relative">
+                    <Image
+                      src={profileImage}
+                      alt="Leonardo Palmeiro profile image"
+                      className="rounded-2xl w-80 h-80 object-cover shadow-2xl"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mt-12">
+              Passionate about crafting exceptional digital experiences through clean code and innovative solutions.
+              I specialize in building scalable web applications with modern technologies,
               focusing on performance, user experience, and maintainable architecture.
             </p>
 
@@ -162,8 +161,8 @@ export default function Example() {
               </button>
             </div>
 
-              {/* Tech Stack Icons */}
-              <div className="pt-8">
+            {/* Tech Stack Icons */}
+            <div className="pt-8">
               <p className="text-sm text-gray-400 mb-4 uppercase tracking-wider">Favorite Tech Stack</p>
               <div className="flex flex-wrap gap-3">
                 {techStack.map((tech) => (
